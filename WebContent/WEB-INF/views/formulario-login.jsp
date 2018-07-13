@@ -33,7 +33,7 @@
 				<input id = "username" type = "text" name = "login" placeholder="Usuário" class = "form-control">
 				<label id = "senha" for = "senha">Senha</label>
 		        <input type = "password" name = "senha" placeholder="Senha" class = "form-control">
-				<button>Efetuar login</button>
+				<button>Login</button>
 		</form>
 	</div>
 	</div>
