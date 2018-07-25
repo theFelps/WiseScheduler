@@ -49,7 +49,7 @@ public class InteressadoController {
 			redirectAttributes.addFlashAttribute("erro", "Ocorreu um erro: " + e);
 			
 		}
-		redirectAttributes.addFlashAttribute("sucesso", "Interessado " + aluno.getId() + " cadastrado com sucesso");
+		redirectAttributes.addFlashAttribute("sucesso", "Interessado "+ aluno.getNome() +" cadastrado!");
 		return "redirect:listaInteressado";
 	}
 
