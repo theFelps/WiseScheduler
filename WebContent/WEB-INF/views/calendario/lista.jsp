@@ -136,7 +136,7 @@ function getContrast50(hexcolor){
 				</div>
 			</div>
 			<div class="col-md-2">
-			<h4>Legenda</h4>
+			<h4>Salas:</h4>
 			
 				<c:forEach items="${salas}" var="sala">
 				<div class = "row">
@@ -147,7 +147,7 @@ function getContrast50(hexcolor){
 					</button>	
 					</div>	
 					<div class="col-md-8">
-					  ${sala.nome_sala}
+					  <p>&nbsp ${sala.nome_sala}</p>
 				    </div>
 					 
 					

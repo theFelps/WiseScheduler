@@ -48,7 +48,7 @@ public class AlunoController {
 			redirectAttributes.addFlashAttribute("erro", "Ocorreu um erro: " + e);
 			
 		}
-		redirectAttributes.addFlashAttribute("sucesso", "Aluno " + aluno.getId() + " cadastrado com sucesso");
+		redirectAttributes.addFlashAttribute("sucesso", "Aluno '" + aluno.getNome() + "' cadastrado.");
 		return "redirect:listaAluno";
 	}
 
@@ -64,7 +64,7 @@ public class AlunoController {
 		try {
 			Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
 			alunoDao.remove(aluno, usuario);
-			redirectAttributes.addFlashAttribute("sucesso", "Aluno " + aluno.getId() + " removido com sucesso");
+			redirectAttributes.addFlashAttribute("sucesso", "Aluno " + aluno.getNome() + " removido");
 
 
 		}
@@ -120,7 +120,7 @@ public class AlunoController {
 		} catch (Exception e) {
 			redirectAttributes.addFlashAttribute("erro", "Ocorreu um erro: " + e);
 		}
-		redirectAttributes.addFlashAttribute("sucesso", "Aluno " + aluno.getNome() + " alterado com sucesso");
+		redirectAttributes.addFlashAttribute("sucesso", "Aluno " + aluno.getNome() + " alterado");
 		return "redirect:listaAluno";
 	}
 
