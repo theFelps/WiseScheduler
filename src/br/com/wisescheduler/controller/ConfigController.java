@@ -8,6 +8,7 @@ import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.wisescheduler.dao.LogDao;
 import br.com.wisescheduler.dao.UsuarioDao;
+import br.com.wisescheduler.model.Sala;
 import br.com.wisescheduler.model.Usuario;
+import br.com.wisescheduler.dao.ConfigFilialDao;
+import br.com.wisescheduler.model.ConfigFilial;
 
 @Controller
 @Transactional
@@ -33,6 +37,9 @@ public class ConfigController {
 	
 	@Autowired 
 	LogDao logDao;
+	
+	@Autowired 
+	ConfigFilialDao configFilialDao;
 	
 
 	@RequestMapping("novoUsuario")
@@ -87,6 +94,7 @@ public class ConfigController {
 		
 		model.addAttribute("logs", logDao.listar(dataInicio , dataFim));
 		model.addAttribute("usuariosCadastrados", usuarioDao.listar());
+		model.addAttribute("configFilial", configFilialDao.listar());
 		return "config/lista";
 	}
 	@RequestMapping("filtraLog")
@@ -134,5 +142,12 @@ public class ConfigController {
 		 return "redirect:/listaConfiguracoes";
 	  
 	 }
+	 @RequestMapping("alteraFilial")
+		public String altera(HttpSession session,ConfigFilial filial, RedirectAttributes redirectAttributes){
+			redirectAttributes.addFlashAttribute("sucesso", "Dados da empresa atualizados");
+			Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+			configFilialDao.altera(filial, usuario);
+			return "redirect:listaConfiguracoes";
+		}
 	
 }
