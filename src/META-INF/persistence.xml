@@ -22,6 +22,7 @@
 	<class>br.com.wisescheduler.metamodel.TurmaRelatorio</class>
  	<class>br.com.wisescheduler.model.Turma</class>
  	<class>br.com.wisescheduler.model.Matricula</class>
+ 	<class>br.com.wisescheduler.model.ConfigFilial</class>
  	
  	
  	<exclude-unlisted-classes>true</exclude-unlisted-classes>
