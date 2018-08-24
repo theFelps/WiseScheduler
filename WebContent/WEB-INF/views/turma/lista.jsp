@@ -20,6 +20,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel='stylesheet' href='resources/css/form.css'>
 <title>Gerenciamento de turmas</title>
+
+
+
 </head>
 
 <body ng-app="">
@@ -33,16 +36,25 @@
 			<div class="col-md-2">
 				<div ng-include="'resources/template/menu.jsp'"></div>
 			</div>
-<script>	
-	$(document).ready( function () {
-    $('#table_lista_turmas').DataTable({
-    	"language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
-    	}
-    });
-} );
-	</script>
+			<script>
+				$(document)
+						.ready(
+								function() {
+									$('#table_lista_turmas')
+											.DataTable(
+													{
+														"language" : {
+															"url" : "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
+														}
+													});
+								});
+			</script>
+			<script>
+					
+			</script>
 			
+			
+
 			<div class="col-md-10">
 			<h3>Turmas</h3>
 				<c:if test="${not empty turmas }">
@@ -69,6 +81,7 @@
 							<th></th>
 							<th></th>
 							<th></th>
+							<th></th>
 						</tr>
 						</thead>
 						<tbody>
@@ -81,13 +94,18 @@
 								<td><a href="mostraTurma?id=${turma.id}" class="btn btn-info btn-sm">Editar</a></td>
 								<td><a href="pdf?id=${turma.id}" class="btn btn-info btn-sm" role="button" disabled>Relatório</a></td>
 								<td><a href="removeTurma?id=${turma.id}" class="btn btn-danger btn-sm" role="button" onclick="return confirm('Deseja remover a turma ${turma.id}?');" >Remover</a></td>
+								<td><a href="mostraTurma?id=${turma.id}" class="btn btn-info btn-sm">Editar</a></td>
+								
 							</tr>
 						</c:forEach>
 						</tbody>
 					</table>
 				</c:if>
+			
 			</div>
 		</div>
 	</div>
+	    
+	
 </body>
 </html>

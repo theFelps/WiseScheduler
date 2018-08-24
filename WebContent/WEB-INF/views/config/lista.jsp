@@ -3,6 +3,7 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="data"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="message" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="campo" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -61,9 +62,10 @@
 					<li><a href="#tabs-1">Usuários</a></li>
 					<li><a href="#tabs-2">Relatórios</a></li>
 					<li><a href="#tabs-3">Logs</a></li>
+					<li><a href="#tabs-4">Empresa</a></li>
 				</ul>
 				
-				<div id="tabs-1">
+				<div id=  "tabs-1">
 					<h3>Usuários cadastrados</h3>
 					<a href="novoUsuario"
 						class="btn btn-info btn-sm">Adicionar Usuário</a>
@@ -159,6 +161,29 @@
 								</tbody>
 							</table>
 				</div>
+	            <div id = "tabs-4">
+				<form action="alteraFilial" method="post">
+		<input type = "hidden" name = "id" value = "${configFilial.id}"/>
+         <h2>Dados da Empresa</h2>
+         <campo:formularioFilial 
+         telefone="${configFilial.telefone}" 
+         buttonValue="Alterar" 
+         nome="${configFilial.nome}" 
+         classe="configFilial" 
+         cnpj="${configFilial.cnpj}" 
+         endereco="${configFilial.endereco}"
+         ie="${configFilial.ie}"
+         im="${configFilial.im}"
+         email="${configFilial.email}"
+         >
+         </campo:formularioFilial>
+
+		
+	</form>	
+					
+					
+					
+				</div> 		
 			</div>
 		</div>
 	</div>
