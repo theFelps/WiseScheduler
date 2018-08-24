@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.sql.DataSource;
@@ -48,8 +49,21 @@ public class ConfigFilialDao {
 	}
 	
 	public ConfigFilial  listar() {
+
 		ConfigFilial filialCadastrada = new ConfigFilial();
-		filialCadastrada =  entityManager.createQuery("select e from ConfigFilial e", ConfigFilial.class).getSingleResult();
+		
+		try {
+			filialCadastrada =  entityManager.createQuery("select e from ConfigFilial e", ConfigFilial.class).getSingleResult();
+		}
+		 
+		catch(NoResultException e) {
+			 ConfigFilial filialPlaceholder = new ConfigFilial();
+			 filialPlaceholder.setNome("Nome da empresa");
+			 
+			 adiciona(filialPlaceholder);
+		}
+		
+		
 		return filialCadastrada;
 		
 

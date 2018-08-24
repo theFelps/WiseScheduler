@@ -5,13 +5,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import br.com.wisescheduler.dao.ConfigFilialDao;
+
 @Entity
 public class ConfigFilial {
 	
 	@Id
 	@GeneratedValue
-	private Long id;
-	@NotNull(message = "Digite o nome da filial")
+	private Long id ;
+	//@NotNull(message = "Digite o nome da filial")
 	private String nome;
 	private String telefone;
 	private String endereco;
@@ -19,6 +23,7 @@ public class ConfigFilial {
 	private String email;
 	private String ie;
 	private String im;
+	
 	
 	
 	public String getNome() {
