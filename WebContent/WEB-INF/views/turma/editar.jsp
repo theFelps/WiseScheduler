@@ -49,8 +49,7 @@
 					<li><a href="#tabs-2">Agendamentos</a></li>
 					<li><a href="#tabs-3">Geral</a></li>
 				</ul>
-				
-				
+
 				<div id="tabs-1">
 					<h3>Alunos Matriculados</h3>
 					<a href="adicionaEmTurma?id=${turma.id}"
@@ -100,8 +99,7 @@
 						</table>
 					</c:if>
 				</div>
-
-				<div id = "tabs-2">
+				<div id="tabs-2">
 				<div class = "row">
 				 <h3>Agendamento de salas da turma ${turma.id}</h3>
 				<a href = "novoAgendamento?id=${turma.id}" class = "btn btn-info btn-sm">Novo horário de turma</a>
@@ -125,7 +123,23 @@
 				     <td><fmt:formatDate value ="${agendamento.dataFim}" pattern = "dd/MM/yyyy" /></td>
 				     <td>${agendamento.sala.nome_sala}</td>
 				     <td>
-					     <a class = "btn btn-danger btn-sm" role="button" href="removeAgendamento/${agendamento.turma.id}/${agendamento.id}">Remover</a>
+					     <a class = "btn btn-danger btn-xs glyphicon glyphicon-remove-sign" role="button" href="removeAgendamento/${agendamento.turma.id}/${agendamento.id}"> Remover</a>
+					     <a class = "btn btn-primary btn-xs glyphicon glyphicon-calendar" role="button" 
+					     href='http://www.google.com/calendar/event?
+							action=TEMPLATE
+							&text=Treinamento ${turma.curso.patriocinador} na ${filial.nome}
+							&dates=<fmt:formatDate value ="${agendamento.dataInicio}" pattern = "yyyyMMdd"/>T<fmt:formatDate value ="${agendamento.horaInicio}" pattern="kkmmss"/>/<fmt:formatDate value ="${agendamento.dataFim}" pattern = "yyyyMMdd"/>T<fmt:formatDate value ="${agendamento.horaFim}" pattern="kkmmss"/>
+							&details= Curso: ${turma.curso.nome} Ref.(${turma.curso.codigo}) %0A Sala: ${agendamento.sala.nome_sala}%0A Instrutor: ${turma.instrutor.nome}
+							&location=${filial.endereco}
+							&trp=false
+							&sprop=
+							&sprop=name:
+							&ctz=[timezone]
+							<c:forEach items="${matriculas}" var="matricula">
+							&add=${matricula.aluno.email}
+							</c:forEach>'
+							>Google Agenda</a>
+					     
 					 </td>
 				</tr>
 		</c:forEach>

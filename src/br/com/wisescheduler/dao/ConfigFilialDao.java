@@ -55,19 +55,13 @@ public class ConfigFilialDao {
 		try {
 			filialCadastrada =  entityManager.createQuery("select e from ConfigFilial e", ConfigFilial.class).getSingleResult();
 		}
-		 
 		catch(NoResultException e) {
 			 ConfigFilial filialPlaceholder = new ConfigFilial();
 			 filialPlaceholder.setNome("Nome da empresa");
 			 
 			 adiciona(filialPlaceholder);
 		}
-		
-		
 		return filialCadastrada;
-		
-
-	
 	}
 	
 	

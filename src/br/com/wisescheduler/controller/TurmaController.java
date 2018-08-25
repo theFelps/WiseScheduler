@@ -28,6 +28,7 @@ import br.com.wisescheduler.dao.InstrutorDao;
 import br.com.wisescheduler.dao.MatriculaDao;
 import br.com.wisescheduler.dao.SalaDao;
 import br.com.wisescheduler.dao.TurmaDao;
+import br.com.wisescheduler.dao.ConfigFilialDao;
 import br.com.wisescheduler.metamodel.TurmaRelatorio;
 import br.com.wisescheduler.model.Agendamento;
 import br.com.wisescheduler.model.Curso;
@@ -58,6 +59,8 @@ public class TurmaController {
 	EmpresaDao empresaDao;
 	@Autowired
 	AlunoDao alunoDao;
+	@Autowired
+	ConfigFilialDao filialDao;
 
 	@RequestMapping("adicionaTurma")
 	public String adicionaTurma(HttpSession session, Turma turma, Long cursoId, Long instrutorId, Long salaId,
@@ -130,6 +133,8 @@ public class TurmaController {
 		model.addAttribute("todasSalas", salaDao.listar());
 		model.addAttribute("matriculas", matriculaDao.listaPorTurma(id));
 		model.addAttribute("agendamentos", turmaDao.listaAgendamentoPorTurma(id));
+		model.addAttribute("filial", filialDao.listar());
+		
 
 		return "turma/editar";
 	}
