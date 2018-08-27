@@ -66,17 +66,17 @@ function getContrast50(hexcolor){
 
 			  {
 				
-				title : "T${agendamento.turma.id} - ${agendamento.turma.curso.nome} ${agendamento.turma.curso.codigo} - ${agendamento.turma.instrutor.nome}",
+				title : "T${agendamento.turma.id} - ${agendamento.turma.curso.codigo} ${agendamento.turma.curso.patriocinador} - ${agendamento.turma.instrutor.nome} adsadasdasda",
 				start : '${agendamento.dataInicio}T00:00:00',
 				end :   '${agendamento.dataFim}T23:00:00',
 				url : 'mostraTurma?id=${agendamento.turma.id}', 
 				color: '#${agendamento.sala.cor}',
   			    weekends: false,
   			    allDAy: false,
-				tip: 'T${agendamento.turma.id} - ${agendamento.turma.curso.nome} ${agendamento.turma.curso.codigo} - ${agendamento.turma.instrutor.nome}. Clique para mais detalhes.',
+				tip: 'T${agendamento.turma.id} - ${agendamento.turma.curso.patriocinador} ${agendamento.turma.curso.codigo} - ${agendamento.turma.instrutor.nome}. Clique para mais detalhes.',
 				description:
 							"<p>Turma Nº: ${agendamento.turma.id}</p>"+
-				            "<p>Curso: ${agendamento.turma.curso.patriocinador} ${agendamento.turma.curso.nome} ${agendamento.turma.curso.codigo}</p>"+
+				            "<p>Curso: ${agendamento.turma.curso.patriocinador} - ${agendamento.turma.curso.nome} (Cod:${agendamento.turma.curso.codigo})</p>"+
 				            "<p>Data: <fmt:formatDate value ="${agendamento.dataInicio}" pattern = "dd/MM/yyyy"/> - <fmt:formatDate value ="${agendamento.dataFim}" pattern = "dd/MM/yyyy"/> </p>"+
 				            "<p>Horário: das <fmt:formatDate value ="${agendamento.horaInicio}" pattern="kk:mm"/> às <fmt:formatDate value ="${agendamento.horaFim}" pattern="kk:mm"/></p>"+
 				            "<p>Instrutor: ${agendamento.turma.instrutor.nome}</p>"+

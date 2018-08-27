@@ -128,13 +128,14 @@
 					     href='http://www.google.com/calendar/event?
 							action=TEMPLATE
 							&text=Treinamento ${turma.curso.patriocinador} na ${filial.nome}
-							&dates=<fmt:formatDate value ="${agendamento.dataInicio}" pattern = "yyyyMMdd"/>T<fmt:formatDate value ="${agendamento.horaInicio}" pattern="kkmmss"/>/<fmt:formatDate value ="${agendamento.dataFim}" pattern = "yyyyMMdd"/>T<fmt:formatDate value ="${agendamento.horaFim}" pattern="kkmmss"/>
+							&dates=<fmt:formatDate value ="${agendamento.dataInicio}" pattern = "yyyyMMdd"/>T<fmt:formatDate value ="${agendamento.horaInicio}" pattern="kkmmss"/>/<fmt:formatDate value ="${agendamento.dataInicio}" pattern = "yyyyMMdd"/>T<fmt:formatDate value ="${agendamento.horaFim}" pattern="kkmmss"/>
 							&details= Curso: ${turma.curso.nome} Ref.(${turma.curso.codigo}) %0A Sala: ${agendamento.sala.nome_sala}%0A Instrutor: ${turma.instrutor.nome}
 							&location=${filial.endereco}
 							&trp=false
 							&sprop=
 							&sprop=name:
 							&ctz=[timezone]
+							&recur=RRULE:FREQ=DAILY;UNTIL=<fmt:formatDate value ="${agendamento.dataFim}" pattern = "yyyyMMdd"/>
 							<c:forEach items="${matriculas}" var="matricula">
 							&add=${matricula.aluno.email}
 							</c:forEach>'
