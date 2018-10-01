@@ -46,12 +46,11 @@
 			<div class="col-md-10">
 			<h3>Turmas</h3>
 				<c:if test="${not empty turmas }">
-					<a href="novaTurma" class="btn btn-primary">Cadastrar nova
-						turma</a>
-				   </c:if>
+					<a href="novaTurma" class="btn btn-primary">Cadastrar nova turma</a>
+				</c:if>
 				
 
-				<c:if test="${ empty turmas}">
+				<c:if test="${empty turmas}">
 						Nenhuma turma cadastrada até o momento. 
 				<a href="novaTurma"	class="btn btn-success btn-sm" role="button">Cadastrar turma</a>
 				</c:if>
