@@ -1,4 +1,4 @@
-package br.com.wisescheduler.jpa;
+package br.com.wisescheduler.utility;
 
 
 import javax.persistence.EntityManagerFactory;

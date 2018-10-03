@@ -31,9 +31,9 @@
 		<form action="efetuaLogin" method="post">
 				<label for = "login">Usuário</label>
 				<input id = "username" type = "text" name = "login" placeholder="Usuário" class = "form-control">
-				<label id = "senha" for = "senha">Senha</label>
-		        <input type = "password" name = "senha" placeholder="Senha" class = "form-control">
-				<button>Login</button>
+				<label for = "senha">Senha</label>
+		        <input id = "password" type = "password" name = "senha" placeholder="Senha" class = "form-control">
+				<button id = "btnLogin">Login</button>
 		</form>
 	</div>
 	</div>

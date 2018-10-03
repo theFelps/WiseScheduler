@@ -1,4 +1,4 @@
-package br.com.wisescheduler.jpa;
+package br.com.wisescheduler.utility;
 
 import java.net.URL;
 import java.net.URLClassLoader;
